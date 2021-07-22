@@ -3,6 +3,9 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
+    <div class="carousel-registration">
+        <img class="image" src="build/images/dorowallpaper.jpg" alt="Doroehdoro wallpaper">
+    </div>
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}

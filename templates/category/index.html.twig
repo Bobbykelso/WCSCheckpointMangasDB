@@ -3,26 +3,26 @@
 {% block title %}Home Mangas DB
 {% endblock %}
 
+
 {% block body %}
     <div class="carousel">
         <img class="image" src="build//images/dorowallpaper.jpg" alt="Doroehdoro wallpaper">
     </div>
     <section class="container">
         <div class="title">
-            <h1>Liste des Mangas</h1>
+            <h1>Liste des Categories</h1>
         </div>
-        {% for book in books %}
-            <div class="card-container-book">
+        {% for category in categories %}
+            <div class="card-container-category">
                 <div class="cards" style="width: 18rem;">
-                    <img src="{{ book.imageBook }}" class="card-img-top" alt="Image des mangas des cards">
+                    <img src="{{ category.categoryImage }}" class="card-img-top" alt="Image des categories">
                     <div class="card-body">
-                        <h5 class="card-title">{{ book.title }}</h5>
-                        <p class="card-author"> Ecrit par {{ book.author }}</p>
-                        <p class="card-artistes"> Dessiné par {{ book.artistes }}</p>
-                        <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                        <h5 class="card-title">{{ category.name }}</h5>
+                        <a href="#" class="btn btn-outline-primary">Voir tous les mangas de cette Categorie</a>
                     </div>
                 </div>
             </div>
+            {# <a href="{{ path('book_show') }}">Allez voir cette oeuvre</a> #}
         {% else %}
             <p>pas de mangas enregistré</p>
         {% endfor %}
