@@ -7,15 +7,32 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Categories</a>
+                <a class="nav-link" href="/category">Categories</a>
             </li>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Connexion</a>
-            </li>
+            <form id="searchForm" action="{{ path('home_search') }}" method="get">
+                <div id="searchBox">
+                    <input type="text" name="b" id="searchField" autocomplete="off">
+                    <ul id="autocomplete"></ul>
+                </div>
+                <button class="btn btn-light btn-outline-success">Rechercher</button>
+            </form>
+
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <ul class="user-nav">
+                    <li class="user-connexion">
+                        <a href="{{ path('app_logout') }}" class="user-connexion-link">Déconnexion</a>
+                    </li>
+                </ul>
+            {% else %}
+                <ul class="user-nav">
+                    <li class="user-connexion">
+                        <a href="/login" class="user-connexion-link">Se connecter</a>
+                    </li>
+                    <li class="user-connexion">
+                        <a href="/register" class="user-connexion-link">S'inscrire</a>
+                    </li>
+                </ul>
+            {% endif %}
         </ul>
     </div>
 </nav>

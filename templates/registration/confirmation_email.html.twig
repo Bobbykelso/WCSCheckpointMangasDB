@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Confirmation d'email pour verifier votre compte utilisateur{% endblock %}</title>
+</head>
+<body>
+{% block body %}
+
+
+    <h1>Nouveau compte utilisateur crée</h1>
+    <h3>Bonjour, Cher {{ firstname }} {{ lastname }} </h3>
+    <p>
+        Veuillez {{ username }}, confirmer votre adresse email en cliquant sur le lien suivant: <br><br>
+        <a href="{{ signedUrl }}">Confirmer mon email</a>.
+{#        Ce lien va expirer dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.#}
+        Ceci est un mail automatique, Merci de ne pas y répondre.
+    </p>
+{% endblock %}
+</body>
+</html>
