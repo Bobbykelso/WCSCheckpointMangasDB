@@ -1,6 +1,6 @@
 # WCSCheckpointMangasDB
 
-- Clone this repo with the branch DEV actually (main soon)
+- Clone this repo with the branch DEV actually (master soon)
 - Run Composer install
 - Run Yarn Install
 - copy env. in env.local and set up ur BDD and SMTP Mailer
