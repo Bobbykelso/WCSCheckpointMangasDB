@@ -4,6 +4,12 @@ body {
     background-color: #FFD68A;
 }
 
+.container-fluid {
+    background-color: #FFD68A;
+}
+.nav-link {
+    color: #006B00;
+}
 .carousel {
     display: flex;
 }
@@ -11,47 +17,134 @@ body {
     height: 500px;
     width: 100%;
 }
-
-.container {
-    display: flex;
-    flex-direction: column;
-}
 .title {
-    align-self: center;
+    display: flex;
+    justify-content: center;
     margin: 3rem;
     color: #006B00;
 }
 .card-container-book {
     display: grid;
     grid-gap: 2rem;
-    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: repeat(1,1fr);
     grid-auto-rows: 100%;
 }
 .card-container-category {
     display: grid;
-    grid-gap: 2rem;
-    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3,2fr);
     grid-auto-rows: 100%;
 }
 
 .cards {
     color: #006B00;
-    border: 2px solid #006B00;
+    border: 1px solid #006B00;
 }
 
 .card-title {
-    align-self: center;
+    display:flex;
+    justify-content: center;
+}
+
+.card-category{
+    display:flex;
+    justify-content: center;
 }
 
 .card-author {
-    align-self: center;
+    display:flex;
+    justify-content: center;
 }
 
-.card-artistes {
-    align-self: center;
+.card-artistes  {
+    display:flex;
+    justify-content: center;
+}
+
+
+.book-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.book-img{
+    display: flex;
+    justify-content: flex-start;
+    width:50%;
+
+}
+
+.book-infos {
+    display: flex;
+    height: 30%;
+    justify-content: flex-end;
+    list-style: none;
+    color: #006B00;
+}
+
+.book-description {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 1rem;
+    color: #006B00;
+}
+
+.form-container-login {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #006B00;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.form-container-register {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #006B00;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.form-container-new {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #006B00;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.register-form {
+    display: flex;
+    justify-content: center;
+}
+
+.info-register {
+    color: #006B00;
+}
+
+h1 {
+    color: #006B00;
+}
+strong {
+    display: flex;
+    justify-content: center;
+    color: #006B00;
+    margin-bottom: 15px;
 }
 
 .btn {
+    background: #FFD68A;
+    color: #006B00;
+}
+
+.btn-card {
+    display: flex;
+    justify-content: center;
+    background: #FFD68A;
+    color: #006B00;
+}
+.btn-return {
+    display: inline-block;
     background: #FFD68A;
     color: #006B00;
 }

@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home Mangas DB
+{% block title %}Categories Mangas
 {% endblock %}
 
 
 {% block body %}
     <div class="carousel">
-        <img class="image" src="build//images/dorowallpaper.jpg" alt="Doroehdoro wallpaper">
+        <img class="image" src="{{ asset('build/images/dorowallpaper.jpg') }}" alt="Doroehdoro wallpaper">
     </div>
     <section class="container">
         <div class="title">
@@ -17,14 +17,15 @@
                 <div class="cards" style="width: 18rem;">
                     <img src="{{ category.categoryImage }}" class="card-img-top" alt="Image des categories">
                     <div class="card-body">
-                        <h5 class="card-title">{{ category.name }}</h5>
-                        <a href="#" class="btn btn-outline-primary">Voir tous les mangas de cette Categorie</a>
+                        <h3 class="card-title">{{ category.name }}</h3>
+                        <a href="{{ path('category_show', {'id': category.id}) }}" class="btn btn-card btn-outline-primary">Oeuvres de cette Categorie</a>
                     </div>
                 </div>
             </div>
             {# <a href="{{ path('book_show') }}">Allez voir cette oeuvre</a> #}
         {% else %}
-            <p>pas de mangas enregistré</p>
+            <strong>Pas de Catégorie enregistrée</strong>
+            <a href="{{ path('box_new') }}" class="btn btn-card btn-outline-primary">En ajouter une</a>
         {% endfor %}
     </section>
 {% endblock %}

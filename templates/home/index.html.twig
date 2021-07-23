@@ -5,7 +5,7 @@
 
 {% block body %}
     <div class="carousel">
-        <img class="image" src="build//images/dorowallpaper.jpg" alt="Doroehdoro wallpaper">
+        <img class="image" src="{{ asset('build/images/dorowallpaper.jpg') }}" alt="Doroehdoro wallpaper">
     </div>
     <section class="container">
         <div class="title">
@@ -16,15 +16,16 @@
                 <div class="cards" style="width: 18rem;">
                     <img src="{{ book.imageBook }}" class="card-img-top" alt="Image des mangas des cards">
                     <div class="card-body">
-                        <h5 class="card-title">{{ book.title }}</h5>
+                        <h3 class="card-title">{{ book.title }}</h3>
+                        <h5 class="card-category">{{ book.category.name }}</h5>
                         <p class="card-author"> Ecrit par {{ book.author }}</p>
                         <p class="card-artistes"> Dessiné par {{ book.artistes }}</p>
-                        <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                        <a href="{{ path('book_show', {'id': book.id}) }}" class="btn btn-card btn-outline-primary">Voir la fiche de cette Oeuvre</a>
                     </div>
                 </div>
             </div>
         {% else %}
-            <p>pas de mangas enregistré</p>
+            <strong>pas de mangas enregistré</strong>
         {% endfor %}
     </section>
 {% endblock %}

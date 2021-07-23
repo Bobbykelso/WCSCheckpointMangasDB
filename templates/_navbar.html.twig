@@ -1,14 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/category">Categories</a>
-            </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="nav-link" href="/">Oeuvres</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/category">Catégories</a>
+                </li>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <ul class="user-nav">
+                        <li class="user-connexion">
+                            <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                        </li>
+                    </ul>
+                {% else %}
+                    <ul class="user-nav">
+                        <li class="user-connexion">
+                            <a href="/login" class="nav-link">Se connecter</a>
+                        </li>
+                        <li class="user-connexion">
+                            <a href="/register" class="nav-link" >S'inscrire</a>
+                        </li>
+                    </ul>
+                {% endif %}
+            </ul>
             <form id="searchForm" action="{{ path('home_search') }}" method="get">
                 <div id="searchBox">
                     <input type="text" name="b" id="searchField" autocomplete="off">
@@ -16,23 +34,6 @@
                 </div>
                 <button class="btn btn-light btn-outline-success">Rechercher</button>
             </form>
-
-            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                <ul class="user-nav">
-                    <li class="user-connexion">
-                        <a href="{{ path('app_logout') }}" class="user-connexion-link">Déconnexion</a>
-                    </li>
-                </ul>
-            {% else %}
-                <ul class="user-nav">
-                    <li class="user-connexion">
-                        <a href="/login" class="user-connexion-link">Se connecter</a>
-                    </li>
-                    <li class="user-connexion">
-                        <a href="/register" class="user-connexion-link">S'inscrire</a>
-                    </li>
-                </ul>
-            {% endif %}
-        </ul>
+        </div>
     </div>
 </nav>

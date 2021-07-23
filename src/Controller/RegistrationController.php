@@ -57,17 +57,16 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
-                (new TemplatedEmail())
-                    ->from($this->getParameter('mailer_from'))
-                    ->to($user->getEmail())
-                    ->subject('Veuillez confirmer votre email')
-                    ->htmlTemplate($this->renderView('registration/confirmation_email.html.twig', [
-                        'firstname' => $user->getFirstname(),
-                        'lastname' => $user->getLastname(),
-                        'username' => $user->getUsername(),
-//                        'signedUrl' => $this->RedirectToRoute('home')
-                    ])));
+//            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+//                (new TemplatedEmail())
+//                    ->from($this->getParameter('mailer_from'))
+//                    ->to($user->getEmail())
+//                    ->subject('Veuillez confirmer votre email')
+//                    ->htmlTemplate($this->renderView('registration/confirmation_email.html.twig', [
+//                        'firstname' => $user->getFirstname(),
+//                        'lastname' => $user->getLastname(),
+//                        'username' => $user->getUsername(),
+//                    ])));
             // do anything else you need here, like send an email
 
             return $guardHandler->authenticateUserAndHandleSuccess(
@@ -105,6 +104,6 @@ class RegistrationController extends AbstractController
         $user->setIsVerified(true);
         $this->addFlash('success', 'Votre adresse mail a bien été verifiée.');
 
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('home_index');
     }
 }
