@@ -32,7 +32,7 @@ class BookController extends AbstractController
         $books = $paginator->paginate(
             $books,
             $request->query->getInt('page', 1),
-            3/*limit per page*/
+            4/*limit per page*/
         );
         return $this->render('home/index.html.twig', [
             'books' => $books,

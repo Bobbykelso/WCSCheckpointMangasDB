@@ -11,13 +11,13 @@
                     <a class="nav-link" href="/category">Catégories</a>
                 </li>
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    <ul class="user-nav">
+                    <ul class="navbar-nav">
                         <li class="user-connexion">
                             <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                         </li>
                     </ul>
                 {% else %}
-                    <ul class="user-nav">
+                    <ul class="navbar-nav">
                         <li class="user-connexion">
                             <a href="/login" class="nav-link">Se connecter</a>
                         </li>
@@ -27,9 +27,9 @@
                     </ul>
                 {% endif %}
             </ul>
-            <form id="searchForm" action="{{ path('home_search') }}" method="get">
+            <form id="searchForm" class="nav-search" action="{{ path('home_search') }}" method="get">
                 <div id="searchBox">
-                    <input type="text" name="b" id="searchField" autocomplete="off">
+                    <input class="nav-input" type="text" name="b" id="searchField" autocomplete="off">
                     <ul id="autocomplete"></ul>
                 </div>
                 <button class="btn btn-light btn-outline-success">Rechercher</button>

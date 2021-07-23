@@ -17,12 +17,12 @@
             </div>
             <div class="book-infos">
                 <ul>
-                    <li>Catégorie : {{ book.category.name }}</li>
-                    <li>Date de publication : {{ book.firstPublishAt|date('Y-m-d') }}</li>
-                    <li>Auteur : {{ book.author }}</li>
-                    <li>Dessinateur(s) : {{ book.artistes }}</li>
-                    <li>Statut :{{ book.status }}</li>
-                    <li>Genres: {{ book.gender }}</li>
+                    <li><strong>Catégorie :</strong> {{ book.category.name }}</li>
+                    <li><strong>Date de publication :</strong> {{ book.firstPublishAt|date('Y-m-d') }}</li>
+                    <li><strong>Auteur :</strong> {{ book.author }}</li>
+                    <li><strong>Dessinateur(s) :</strong> {{ book.artistes }}</li>
+                    <li><strong>Statut :</strong> {{ book.status }}</li>
+                    <li><strong>Genres:</strong> {{ book.gender }}</li>
                 </ul>
             </div>
         </div>

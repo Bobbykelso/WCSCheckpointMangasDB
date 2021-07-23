@@ -8,21 +8,19 @@
     <div class="carousel">
         <img class="image" src="{{ asset('build/images/dorowallpaper.jpg') }}" alt="Doroehdoro wallpaper">
     </div>
-    <section class="container">
         <div class="title">
-            <h1>Liste des Categories</h1>
+            <h2>Liste des Categories :</h2>
         </div>
+    <section class="container-card">
         {% for category in categories %}
-            <div class="card-container-category">
-                <div class="cards" style="width: 18rem;">
-                    <img src="{{ category.categoryImage }}" class="card-img-top" alt="Image des categories">
+                <div class="cards" style="width: 20rem;">
+                    <img src="{{ category.categoryImage }}" class="card-img-top-category" alt="Image des categories">
                     <div class="card-body">
                         <h3 class="card-title">{{ category.name }}</h3>
                         <a href="{{ path('category_show', {'id': category.id}) }}" class="btn btn-card btn-outline-primary">Oeuvres de cette Categorie</a>
                     </div>
                 </div>
-            </div>
-            {# <a href="{{ path('book_show') }}">Allez voir cette oeuvre</a> #}
+
         {% else %}
             <strong>Pas de Catégorie enregistrée</strong>
             <a href="{{ path('box_new') }}" class="btn btn-card btn-outline-primary">En ajouter une</a>

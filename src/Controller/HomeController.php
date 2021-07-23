@@ -31,7 +31,7 @@ class HomeController extends AbstractController
         $books = $paginator->paginate(
             $books,
             $request->query->getInt('page', 1),
-            6/*limit per page*/
+            4/*limit per page*/
         );
 
 
