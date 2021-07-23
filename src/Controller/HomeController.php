@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Repository\BookRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -20,14 +21,21 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param BookRepository $bookRepository
+     * @param Request $request
+     * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function index(BookRepository $bookRepository): Response
+    public function index(BookRepository $bookRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $books = $bookRepository->findAll();
+        $books = $paginator->paginate(
+            $books,
+            $request->query->getInt('page', 1),
+            6/*limit per page*/
+        );
+
 
         return $this->render('home/index.html.twig', [
-            'mon_site' => 'Mangas DB',
             'books' => $books
         ]);
     }

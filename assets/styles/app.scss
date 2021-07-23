@@ -143,8 +143,26 @@ strong {
     background: #FFD68A;
     color: #006B00;
 }
+
+.btn-return-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .btn-return {
-    display: inline-block;
     background: #FFD68A;
     color: #006B00;
+    margin: 20px;
 }
+
+.pagination {
+    justify-content: center;
+    margin: 20px;
+}
+
+.page-link {
+    background-color: white;
+    color: green;
+}
+

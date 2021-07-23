@@ -20,7 +20,8 @@
                         <h5 class="card-category">{{ book.category.name }}</h5>
                         <p class="card-author"> Ecrit par {{ book.author }}</p>
                         <p class="card-artistes"> Dessiné par {{ book.artistes }}</p>
-                        <a href="{{ path('book_show', {'id': book.id}) }}" class="btn btn-card btn-outline-primary">Voir la fiche de cette Oeuvre</a>
+                        <a href="{{ path('book_show', {'id': book.id}) }}" class="btn btn-card btn-outline-primary">Voir
+                            la fiche de cette Oeuvre</a>
                     </div>
                 </div>
             </div>
@@ -28,4 +29,10 @@
             <strong>pas de mangas enregistré</strong>
         {% endfor %}
     </section>
+    {{ knp_pagination_render(books, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+    {# {{ knp_pagination_render(books, null, {}, { #}
+    {# 'align': 'center', #}
+    {# 'size': 'large', #}
+    {# 'rounded': true, #}
+    {# }) }} #}
 {% endblock %}
