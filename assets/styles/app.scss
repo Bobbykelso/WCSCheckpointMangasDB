@@ -8,6 +8,14 @@ body {
     background-color: #FFD68A;
 }
 
+.collapse.navbar-collapse {
+    height: 70px!important;
+}
+
+.autocomplete {
+    display: none;
+}
+
 .carousel {
     display: flex;
 }
@@ -141,7 +149,9 @@ body {
 .info-register {
     color: #006B00;
 }
-
+h1 {
+    color: #006B00;
+}
 strong {
     display: flex;
     justify-content: center;
@@ -182,6 +192,11 @@ strong {
     background-color: white;
     color: green;
 }
+.navbar {
+    img{
+        display: none;
+    }
+}
 @media screen and (max-width: 1200px) {
     .book-img {
         width: 60%;
@@ -198,7 +213,18 @@ strong {
         width: 100%;
         justify-content: space-around;
         align-items: center;
+        position: relative;
+        height: 70px;
+        //img {
+        //    display: flex;
+        //    height: 500px;
+        //    width: 100%;
+        //    position: absolute;
+        //    top: 0;
+        //    left: 0;
+        //}
     }
+
     .navbar-nav {
         display: inline-flex;
     }
@@ -207,7 +233,7 @@ strong {
         align-items: center;
     }
     .nav-input {
-        padding: 0!important;
+        margin-right: 10px;
     }
 }
 @media screen and (max-width: 767px) {

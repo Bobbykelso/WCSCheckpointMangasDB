@@ -1,5 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+{#    <img src="{{ asset('build/images/navbaranime.png') }}" alt="image mangas navbar">#}
     <div class="container-fluid">
         <a class="nav-link" href="/">Oeuvres</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +31,7 @@
             <form id="searchForm" class="nav-search" action="{{ path('home_search') }}" method="get">
                 <div id="searchBox">
                     <input class="nav-input" type="text" name="b" id="searchField" autocomplete="off">
-                    <ul id="autocomplete"></ul>
+                    <ul class="autocomplete" id="autocomplete"></ul>
                 </div>
                 <button class="btn btn-light btn-outline-success">Rechercher</button>
             </form>
