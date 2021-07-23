@@ -26,15 +26,17 @@
                 </ul>
             </div>
         </div>
-            <div class="book-description">
-                <p>Description : {{ book.synopsis }}</p>
+        <div class="book-description">
+            <p>Description : {{ book.synopsis }}</p>
+        </div>
+        </div>
+        <div class="btn-return-container">
+            <div class="btn-return">
+                <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('home_index') }}">Revenir aux Oeuvres</a>
             </div>
-        </div>
-        <div class="btn-return">
-            <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('home_index') }}">Revenir aux Oeuvres</a>
-        </div>
-        <div class="btn-return">
-            <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('category_index') }}">Revenir aux Catégories</a>
+            <div class="btn-return">
+                <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('category_index') }}">Revenir aux Catégories</a>
+            </div>
         </div>
     </section>
 {% endblock %}

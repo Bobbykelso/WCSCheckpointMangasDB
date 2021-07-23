@@ -5,12 +5,14 @@ namespace App\Controller;
 use App\Entity\Book;
 use App\Form\BookType;
 use App\Repository\BookRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * @Route("/book", name="book_")
@@ -20,12 +22,18 @@ class BookController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param BookRepository $bookRepository
+     * @param Request $request
+     * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function showAllBooks(BookRepository $bookRepository): Response
+    public function showAllBooks(BookRepository $bookRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $books = $bookRepository->findAll();
-
+        $books = $paginator->paginate(
+            $books,
+            $request->query->getInt('page', 1),
+            3/*limit per page*/
+        );
         return $this->render('home/index.html.twig', [
             'books' => $books,
         ]);
