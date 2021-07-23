@@ -7,13 +7,13 @@
     <div class="carousel">
         <img class="image" src="{{ asset('build/images/dorowallpaper.jpg') }}" alt="Doroehdoro wallpaper">
     </div>
-    <section class="container">
         <div class="title">
-            <h1>Liste des Mangas</h1>
+            <h1>Bienvenue sur MangasDB, un site de référencement fait pour vous ! </h1>
+            <h2>Liste des Mangas :</h2>
         </div>
+    <section class="container-card">
         {% for book in books %}
-            <div class="card-container-book">
-                <div class="cards" style="width: 18rem;">
+                <div class="cards" style="width: 20rem;">
                     <img src="{{ book.imageBook }}" class="card-img-top" alt="Image des mangas des cards">
                     <div class="card-body">
                         <h3 class="card-title">{{ book.title }}</h3>
@@ -24,7 +24,6 @@
                             la fiche de cette Oeuvre</a>
                     </div>
                 </div>
-            </div>
         {% else %}
             <strong>pas de mangas enregistré</strong>
         {% endfor %}
