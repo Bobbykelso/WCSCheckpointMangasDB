@@ -4,40 +4,45 @@
 
 {% block body %}
     <div class="carousel-registration">
-        <img class="image" src="build/images/dorowallpaper.jpg" alt="Doroehdoro wallpaper">
+        <img class="image" src="{{ asset('build/images/dorowallpaper.jpg') }}" alt="Doroehdoro wallpaper">
     </div>
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <section class="form-container-login">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            Vous etes loggé en tant que {{ app.user.username }}, Vous pouvez vous déconnecter en cliquant sur : <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+            {% if app.user %}
+                <div class="mb-3">
+                    Vous etes loggé en tant que {{ app.user.username }}, Vous pouvez vous déconnecter en cliquant sur :
+                    <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
 
-    <h1 class="h3 mb-5 mt-5 font-weight-normal">Veuillez vous connecter</h1>
-    <label class="mb-3" for="inputUsername">Pseudonyme</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
-    <label class="mb-3 mt-3" for="inputPassword">Mot de Passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            <h1 class="h3 mb-5 mt-5 font-weight-normal">Veuillez vous connecter</h1>
+            <label class="mb-3" for="inputUsername">Pseudonyme</label>
+            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control"
+                   autocomplete="username" required autofocus>
+            <label class="mb-3 mt-3" for="inputPassword">Mot de Passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control"
+                   autocomplete="current-password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-{#        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.#}
-{#        See https://symfony.com/doc/current/security/remember_me.html#}
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+            {# Uncomment this section and add a remember_me option below your firewall to activate remember me functionality. #}
+            {# See https://symfony.com/doc/current/security/remember_me.html #}
 
-        <div class="checkbox mb-1 mt-1">
-            <label for="remember_me">
-                <input type="checkbox" id="remember_me" name="_remember_me"> Se souvenir de moi
-            </label>
-        </div>
+            <div class="checkbox mb-1 mt-1">
+                <label for="remember_me">
+                    <input type="checkbox" id="remember_me" name="_remember_me"> Se souvenir de moi
+                </label>
+            </div>
 
 
-    <button class="mt-3 btn btn-light btn-outline-success" type="submit">
-        Connexion
-    </button>
-</form>
+            <button class="mt-3 mb-4 btn btn-light btn-outline-success" type="submit">
+                Connexion
+            </button>
+        </form>
+    </section>
 {% endblock %}

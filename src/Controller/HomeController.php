@@ -32,20 +32,6 @@ class HomeController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/show{book_id}", name="show")
-     * @ParamConverter("user", class="App\Entity\Book", options={"mapping": {"book_id": "id"}})
-     * @param BookRepository $bookRepository
-     * @return Response
-     */
-    public function showOneBook(BookRepository $bookRepository): Response
-    {
-        $books = $bookRepository->findOneBy();
-
-        return $this->render('book/show.html.twig', [
-            'books' => $books,
-        ]);
-    }
 
     /**
      * @Route("/search", name="search", methods={"GET"})
