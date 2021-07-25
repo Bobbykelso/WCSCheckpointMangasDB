@@ -7,7 +7,6 @@ use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,10 +24,10 @@ class BookType extends AbstractType
                 'label' => 'Url d\'image'
             ])
             ->add('synopsis', TextType::class, [
-                'label' => 'Synopsis'
-            ])
-            ->add('status', TextType::class, [
-                'label' => 'Statut de l\'oeuvre'
+        'label' => 'Synopsis'
+    ])
+        ->add('status', TextType::class, [
+            'label' => 'Statut de l\'oeuvre'
             ])
             ->add('gender', TextType::class, [
                 'label' => 'Genres'

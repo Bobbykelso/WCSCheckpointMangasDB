@@ -12,6 +12,11 @@
                     <a class="nav-link" href="/category">Catégories</a>
                 </li>
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    {% if is_granted ('ROLE_ADMIN') %}
+                        <li class="user-connexion">
+                            <a class="nav-link" href="{{ path('admin_dashboard') }}">Espace Admin</a>
+                        </li>
+                    {% endif %}
                     <ul class="navbar-nav">
                         <li class="user-connexion">
                             <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
