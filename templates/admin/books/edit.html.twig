@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer une oeuvre{% endblock %}
+
+{% block body %}
+    <h1>Editer une Oeuvre</h1>
+
+    {{ include('admin/books/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <div class="btn-return-container">
+        <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('admin_categories_index') }}">Revenir a la liste</a>
+    </div>
+{% endblock %}

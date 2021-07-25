@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des oeuvres{% endblock %}
+
+{% block body %}
+    <h1>Gestion des Oeuvres</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Oeuvre</th>
+            <th>Catégorie</th>
+            <th>Image</th>
+            <th>Synopsis</th>
+            <th>Statut</th>
+            <th>Genres</th>
+            <th>Auteur</th>
+            <th>Artistes</th>
+            <th>Animé</th>
+            <th>1ère Publication</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td><strong>{{ book.title }}</strong></td>
+                <td><strong>{{ book.category.name }}</strong></td>
+                <td><img class="image" src="{{ book.imageBook }}" alt="image de couverture de l'oeuvre"></td>
+                <td><strong>{{ book.synopsis }}</strong></td>
+                <td><strong>{{ book.status }}</strong></td>
+                <td><strong>{{ book.gender }}</strong></td>
+                <td><strong>{{ book.author }}</strong></td>
+                <td><strong>{{ book.artistes }}</strong></td>
+                <td><strong>{{ book.isAnimated ? 'Oui' : 'Non' }}</strong></td>
+                <td><strong>{{ book.firstPublishAt ? book.firstPublishAt|date('Y-m-d H:i:s') : '' }}</strong></td>
+                <td>
+                    <a class="btn btn-outline-warning" href="{{ path('admin_book_edit', {'id': book.id}) }}">Editer</a>
+                    {{ include('admin/books/_delete_form.html.twig') }}
+                </td>
+            </tr>
+
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune Oeuvres trouvées ! </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ knp_pagination_render(books, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+    <div class="btn-return-container">
+        <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('admin_book_new') }}">Ajouter une nouvelle oeuvre</a>
+        <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('admin_dashboard') }}">Revenir à l'Espace Admin</a>
+    </div>
+{% endblock %}

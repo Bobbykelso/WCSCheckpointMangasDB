@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Catégories{% endblock %}
+
+{% block body %}
+    <h1>Gestion des Catégories</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom de la catégorie</th>
+                <th>Image de la catégorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td><strong>{{ category.name }}</strong></td>
+                <td><strong><img class="image" src="{{ category.categoryImage }}" alt="image de couverture de la catégorie"></td>
+                <td>
+                    <a class="btn btn-outline-warning"
+                       href="{{ path('admin_categories_edit', {'id': category.id}) }}">Editer</a>
+                    {{ include('admin/categories/_delete_form.html.twig') }}
+                </td>
+            </tr>
+
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune Categories trouvées ! </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ knp_pagination_render(categories, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+    <div class="btn-return-container">
+        <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('admin_categories_new') }}">Ajouter une nouvelle
+            Catégorie</a>
+        <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('admin_dashboard') }}">Revenir à l'Espace Admin</a>
+    </div>
+{% endblock %}

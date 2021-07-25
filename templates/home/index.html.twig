@@ -25,13 +25,9 @@
                     </div>
                 </div>
         {% else %}
-            <strong>pas de mangas enregistré</strong>
+            <strong>Pas de mangas enregistré</strong>
+            <a href="{{ path('book_new') }}" class="btn btn-card btn-outline-primary">En ajouter une</a>
         {% endfor %}
     </section>
     {{ knp_pagination_render(books, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
-    {# {{ knp_pagination_render(books, null, {}, { #}
-    {# 'align': 'center', #}
-    {# 'size': 'large', #}
-    {# 'rounded': true, #}
-    {# }) }} #}
 {% endblock %}

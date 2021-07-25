@@ -45,18 +45,25 @@ class HomeController extends AbstractController
      * @Route("/search", name="search", methods={"GET"})
      * @param Request $request
      * @param BookRepository $bookRepository
+     * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function search(Request $request, BookRepository $bookRepository): Response
+    public function search(Request $request, BookRepository $bookRepository, PaginatorInterface $paginator): Response
     {
         $query = $request->query->get('b');
 
         if (null !== $query) {
             $books = $bookRepository->findByQuery($query);
         }
+        $search = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            4/*limit per page*/
+        );
 
         return $this->render('home/index.html.twig', [
             'books' => $books ?? [],
+            'search' => $search
         ]);
     }
 

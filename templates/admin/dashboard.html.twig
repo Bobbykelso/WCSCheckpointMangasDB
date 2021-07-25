@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Administrateur{% endblock %}
+
+{% block body %}
+    {% for admin in user %}
+     connecté en tant que {{ admin.username }} : {{ admin.firstname }} {{ admin.lastname }}
+    {% endfor %}
+    <section class="home-first">
+        <h1>Dashboard administrateur</h1>
+        <ul>
+{#            <li>#}
+{#                <h2><a href="{{ path('admin_users_index') }}">Gestions des Utilisateurs</a></h2>#}
+{#            </li>#}
+            <li>
+                <h2><a href="{{ path('admin_book_index') }}">Gestions des Oeuvres</a></h2>
+            </li>
+            <li>
+                <h2><a href="{{ path('admin_categories_index') }}">Gestions des Catégories</a></h2>
+            </li>
+            <li>
+                <h2><a href="{{ path('admin_commentary_index') }}">Gestions des Commentaires</a></h2>
+            </li>
+        </ul>
+    </section>
+{% endblock %}

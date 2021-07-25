@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Commentaires{% endblock %}
+
+{% block body %}
+    <h1>Gestion des Commentaires</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>N°</th>
+            <th>Utilisateur</th>
+            <th>Message</th>
+            <th>Publié le</th>
+            <th>Commentaire actif</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for commentary in commentaries %}
+            <tr>
+                <td><strong>{{ commentary.id }}</strong></td>
+                <td><strong>{{ commentary.user.username }}</strong></td>
+                <td><strong>{{ commentary.content }}</strong></td>
+                <td><strong>{{ commentary.date ? commentary.date|date('Y-m-d H:i:s') : '' }}</strong></td>
+                <td><strong>{{ commentary.commentIsActive ? 'Oui' : 'Non' }}</strong></td>
+                <td>
+                    {{ include('admin/commentary/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun Commentaires trouvés ! </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ knp_pagination_render(commentaries, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+    <div class="btn-return-container">
+        <a class="btn btn-outline-info mt-3 mb-4" href="{{ path('admin_dashboard') }}">Revenir à l'Espace Admin</a>
+    </div>
+{% endblock %}

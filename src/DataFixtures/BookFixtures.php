@@ -70,7 +70,7 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
             'artistes' => 'Oku Hiroya',
             'isAnimated' => true,
             'firstPublishAt' => '2000',
-            'category' => 1,
+            'category' => 3,
         ],
         [
             'title' => 'One Punch Man',

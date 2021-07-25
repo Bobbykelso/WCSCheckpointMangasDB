@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Book;
 use App\Form\BookType;
 use App\Repository\BookRepository;
+use App\Repository\CommentaryRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -71,12 +72,14 @@ class BookController extends AbstractController
      * @param Book $book
      * @return Response
      */
-    public function showOneBook(BookRepository $bookRepository, Book $book): Response
+    public function showOneBook(BookRepository $bookRepository, CommentaryRepository $commentaryRepository ,Book $book): Response
     {
         $book = $bookRepository->find($book);
-
+        $comment = [];
+        $comments = $commentaryRepository->findBy($comment, array('content' => 'DESC'));
         return $this->render('book/show.html.twig', [
             'book' => $book,
+            'comments' => $comments
         ]);
     }
 
